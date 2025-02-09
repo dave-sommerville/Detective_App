@@ -1,0 +1,34 @@
+﻿@model Detective_App.Models.Case
+
+<h2></h2>
+<form asp-action="Create">
+	<div>
+		<label asp-for="DateOfIncident"></label>
+		<input asp-for="DateOfIncident" />
+	</div>
+	<div>
+		<label asp-for="Status">Case Status</label>
+		@Html.DropDownListFor(m => m.Status, new List<SelectListItem>
+		{
+		new SelectListItem { Value = "Open", Text = "Open" },
+		new SelectListItem { Value = "Closed", Text = "Closed" },
+		new SelectListItem { Value = "Cold", Text = "Cold" }
+		}, "Select Status", new { @class = "form-control" })
+		<span asp-validation-for="Status"></span>
+	</div>
+		<div>
+		<label asp-for="CrimeSceneLocation"></label>
+		<input asp-for="CrimeSceneLocation" />
+	</div>
+	<div>
+		<label asp-for="Notes"></label>
+		<input asp-for="Notes" />
+	</div>
+	<button type="submit">Create Case File</button>
+</form>
+
+@* <div> *@
+@* 	<label asp-for="Robot1Id">Robot1</label> *@
+@* 	<select asp-for="Robot1Id" asp-items="@(new SelectList(ViewBag.Robots, "Id", "Name"))"></select> *@
+@* 	<span asp-validation-for="Robot1Id"></span> *@
+@* </div> *@

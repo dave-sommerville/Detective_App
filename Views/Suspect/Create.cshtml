@@ -1,0 +1,32 @@
+﻿@model Detective_App.Models.Suspect
+
+<h2></h2>
+<form asp-action="Create">
+	<div>
+		<label asp-for="SuspectFirstName"></label>
+		<input asp-for="SuspectFirstName" />
+	</div>
+	<div>
+		<label asp-for="SuspectLastName"></label>
+		<input asp-for="SuspectLastName" />
+	</div>
+	<div>
+		<label asp-for="KnownAliases"></label>
+		<input asp-for="KnownAliases" />
+	</div>
+	<div>
+		<label asp-for="PhysicalDescription"></label>
+		<input asp-for="PhysicalDescription" />
+	</div>
+	<div>
+		<label asp-for="Motive"></label>
+		<input asp-for="Motive" />
+	</div>
+	<div>
+		<label asp-for="Alibi"></label>
+		<input asp-for="Alibi" />
+	</div>
+
+
+	<button type="submit">Enter Evidence</button>
+</form>

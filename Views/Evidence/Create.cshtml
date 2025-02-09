@@ -1,0 +1,32 @@
+﻿@model Detective_App.Models.Evidence
+
+<h2></h2>
+<form asp-action="Create">
+	<div>
+		<label asp-for="Title"></label>
+		<input asp-for="Title" />
+	</div>
+	<div>
+		<label asp-for="DateFound"></label>
+		<input asp-for="DateFound" />
+	</div>
+	<div>
+		<label asp-for="RetrievalLocation"></label>
+		<input asp-for="RetrievalLocation" />
+	</div>
+	<div>
+		<label asp-for="EvidenceType"></label>
+		<input asp-for="EvidenceType" />
+	</div>
+	<div>
+		<label asp-for="Description"></label>
+		<input asp-for="Description" />
+	</div>
+	<div>
+		<label asp-for="CollectedBy"></label>
+		<input asp-for="CollectedBy" />
+	</div>
+
+
+	<button type="submit">Enter Evidence</button>
+</form>
