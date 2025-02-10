@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<Case>
+
+	<h1>Existing Cases</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Date of Incident</th>
+				<th>Date Opened</th>
+				<th>Crime Scene Location</th>
+				<th>Notes</th>
+				<th>Suspeects</th>
+				<th>Evidence</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Case caseFile in Model) 
+			{
+				<tr>
+					<td>@caseFile.Status</td>
+					<td>@caseFile.DateOfIncident</td>
+					<td>@caseFile.DateFileOpened</td>
+					<td>@caseFile.CrimeSceneLocation</td>
+					<td>@caseFile.Notes</td>
+					<td>@caseFile.Suspects</td>
+					<td>@caseFile.Evidence</td>
+					<td>
+						<a href="/Case/Delete/@caseFile.CaseId">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table
