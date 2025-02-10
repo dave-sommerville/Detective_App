@@ -5,28 +5,28 @@ namespace Detective_App.Controllers
 {
     public class EvidenceController : Controller
     {
-            private static List<Evidence> _evidence = new List<Evidence>();
-            private static int _nextId = 1;
-            public IActionResult Index()
+        private static List<Evidence> _evidence = new List<Evidence>();
+        private static int _nextId = 1;
+        public IActionResult Index()
+        {
+            return View(_evidence);
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Evidence evidence)
+        {
+            if (ModelState.IsValid)
             {
-                return View(_evidence);
+                evidence.EvidenceID = _nextId++;
+                _evidence.Add(evidence);
+                return RedirectToAction("Index");
             }
-            [HttpGet]
-            public IActionResult Create()
-            {
-                return View();
-            }
-            [HttpPost]
-            public IActionResult Create(Evidence evidence)
-            {
-                if (ModelState.IsValid)
-                {
-                    evidence.EvidenceID = _nextId++;
-                    _evidence.Add(evidence);
-                    return RedirectToAction("Index");
-                }
-                return View(evidence);
-            }
+            return View(evidence);
+        }
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -38,7 +38,6 @@ namespace Detective_App.Controllers
             return View(evidence);
         }
 
-        // POST: Evidence/Edit/5
         [HttpPost]
         public IActionResult Edit(int id, Evidence updatedEvidence)
         {
@@ -49,22 +48,26 @@ namespace Detective_App.Controllers
                 {
                     return NotFound(); 
                 }
-                existingEvidence.Description = updatedEvidence.Description;
+                existingEvidence.Title = updatedEvidence.Title;
                 existingEvidence.DateFound = updatedEvidence.DateFound;
+                existingEvidence.RetrievalLocation = updatedEvidence.RetrievalLocation;
+                existingEvidence.EvidenceType = updatedEvidence.EvidenceType;
+                existingEvidence.Description = updatedEvidence.Description;
+                existingEvidence.Description = updatedEvidence.Description;
+                existingEvidence.CollectedBy = updatedEvidence.CollectedBy;
+                existingEvidence.Description = updatedEvidence.Description;
                 return RedirectToAction("Index"); 
             }
             return View(updatedEvidence);
         }
-        [HttpDelete]
-            public IActionResult Delete(int id)
+        public IActionResult Delete(int id)
+        {
+            Evidence evi = _evidence.FirstOrDefault(d => d.EvidenceID == id);
+            if (evi != null)
             {
-                Evidence evi = _evidence.FirstOrDefault(d => d.EvidenceID == id);
-                if (evi != null)
-                {
-                    _evidence.Remove(evi);
-                }
-                return RedirectToAction("Index");
+                _evidence.Remove(evi);
             }
-
+            return RedirectToAction("Index");
         }
     }
+}
