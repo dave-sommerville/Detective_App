@@ -25,6 +25,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cases
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" asp-controller="CaseController" asp-action="Index">View 1</a>
+                                <a class="dropdown-item" asp-controller="CaseController" asp-action="Create">View 2</a>
+                                <a class="dropdown-item" asp-controller="CaseController" asp-action="Edit">View 3</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Suspects
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" asp-controller="SuspectController" asp-action="Index">View 4</a>
+                                <a class="dropdown-item" asp-controller="SuspectController" asp-action="Create">View 5</a>
+                                <a class="dropdown-item" asp-controller="SuspectController" asp-action="Edit">View 6</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Edvidence
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                <a class="dropdown-item" asp-controller="EvidenceController" asp-action="Index">View 7</a>
+                                <a class="dropdown-item" asp-controller="EvidenceController" asp-action="Create">View 8</a>
+                                <a class="dropdown-item" asp-controller="EvidenceController" asp-action="Edit">View 9</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
